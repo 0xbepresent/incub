@@ -8,26 +8,28 @@
         jQuery(document).ready(function(){
             jQuery("#textTerminal").focus();
             jQuery("#textTerminal").bind("keypress", function(e){
-                //Si tecleo enter
                 if(e.keyCode==13){
                     var texto = jQuery("#textTerminal").val();
-                    //Eniar datos via al Servidor
-                    $.post("xhr_terminal/", {
-                            texto: texto
-                        }, function(data){
-                            jQuery("#contenidoTermial").append("root@misa-corp:$ "+data+"<br>");
-                            if(texto == "clear"){
-                                jQuery("#contenidoTermial").empty();
-                            }
-                        }
-                    );
+                    switch(texto){
+                        case "clear": 
+                            jQuery("#contenidoTermial").empty();
+                            break;
+                        default:
+                            //Eniar datos via al Servidor
+                            $.post("xhr_terminal/", {
+                                texto: texto
+                                }, function(data){
+                                jQuery("#contenidoTermial").append("root@misa-corp:$ "+data+"<br>");
+                                }
+                                );
+                    }
                     jQuery("#textTerminal").val("");
                 }
             });
         });
     </script>
 </head
-<body onload="document.textTerminal.focus()">
+<body>
     <div id='contenidoTermial'>
     </div>
     root@misa-corp:$ <input type='text' id='textTerminal' size="200" style="background-color: #1C1C1C; border:none; outline:none; color:#FE2E64;">
