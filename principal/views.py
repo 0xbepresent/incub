@@ -18,6 +18,8 @@ def xhr_terminal(request):
             message = "Terminal simulation in python!."
         elif txt == "hi":
             message = "Hi, I'm incub :D"
+        elif txt == "help":
+            message = "Commands:  about, clear, login, hi, who"
         else:
             message = "Comando no encontrado"
         return HttpResponse(message)
