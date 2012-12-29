@@ -12,3 +12,25 @@ body{
     font-family: "code";
     font-size: 15px;
 }
+
+A:link, A:visited{ color: #58ACFA; text-decoration: none;}
+A:hover, A:active{color:  #64A8E7;  text-decoration: none;}
+
+#content{
+    position: absolute;
+    padding: 10px;
+    top: 5%;
+    left: 20%;
+    /*border: 1px solid #fff;*/
+}
+
+.head{
+    font-size: 100px;
+}
+
+.tbl_accounts{
+    padding: 15px;
+    width: 700px;
+    height: auto;
+    border:1px dashed #FE2E64;
+}

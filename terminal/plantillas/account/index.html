@@ -1,2 +1,26 @@
-Hola
-{{accounts}}
+{% extends "base.html" %}
+{%block title %} Account {% endblock title%}
+{% block body %}
+    <div id="content">
+        <label for="incub" class="head"> Incub </label><br>
+        Bienvenido {{name_account}} 
+        <a href='/logout_acc'> Logout</a>
+        <br><br>
+            <table class="tbl_accounts">
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>User-Account</td>
+                <td>Pass-Account</td>
+            </tr>
+            {%for item in accounts %}
+                <tr style="color: #E35B3E;">
+                    <td>{{item.name}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.user_account}}</td>
+                    <td>{{item.pass_account}}</td>
+                </tr>
+            {% endfor %}
+            </table>
+    </div>
+{% endblock body %}

@@ -1,16 +1,17 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Console</title>
-    <link rel = 'stylesheet' type='text/css' href='{{STATIC_URL}}css/base.css' >
+{% extends 'base.html' %}
+{% block title %}
+    Main
+{% endblock %}
+{% block style_css %}
     <link rel = 'stylesheet' type='text/css' href='{{STATIC_URL}}css/login.css' >
-    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+{% endblock style_css %}
+{% block style_js %}
     <script type='text/javascript' src='{{STATIC_URL}}js/jquery.simplemodal.js'></script>
     <script type='text/javascript' src='{{STATIC_URL}}js/login.js'></script>
     <script type="text/javascript" src="{{STATIC_URL}}js/terminal.js">
     </script>
-</head>
-<body>
+{% endblock style_js%}
+{% block body %}
     Typing 'help' for more information.<br>
     <div id='contenidoTermial'>
     </div>
@@ -28,5 +29,4 @@
             <div id="msg_login">
             </div>
     </div>
-</body>
-</html>
+{% endblock body %}
