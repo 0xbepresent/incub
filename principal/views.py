@@ -16,7 +16,6 @@ def home(request):
 
 @csrf_exempt
 def xhr_terminal(request):
-    """Se recibe el parametro enviado con JQuery y se transforma"""
     if request.is_ajax():
         txt = request.POST['texto']
         if txt == "who":
@@ -42,7 +41,6 @@ def xhr_login(request):
         if access is not None:
             if access.is_active:
                 login(request, access)
-                #return HttpResponseRedirect('/account')
                 return HttpResponse(1)
             else:
                 return HttpResponse("User is not active")

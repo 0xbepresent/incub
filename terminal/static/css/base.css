@@ -34,3 +34,44 @@ A:hover, A:active{color:  #64A8E7;  text-decoration: none;}
     height: auto;
     border:1px dashed #FE2E64;
 }
+
+.contenido{
+    width: 750px;
+    height: auto;
+}
+
+label{
+            display: block;
+            font-weight:bold;
+       }
+input[type='text']{
+            font-family: "code";
+            color: #58ACFA;
+            padding: 2px 2px;
+            width: 200px;
+            border: 1px dotted #FE2E64;
+            background-color: #151515;
+            outline:none;
+}
+input[type='text']:focus{
+            border: 1px dotted #FA5882;
+}
+textarea{
+            font-family: "code";
+            color: #58ACFA;
+            border: 1px dotted #FE2E64;
+            background-color: #151515;
+            resize: none;
+            outline:none;
+        overflow: auto;
+}
+textarea:focus{
+            border: 1px dotted #FA5882;
+}
+      
+.btn{
+            font-family: "code";
+            background-color: #151515;
+            color: #FA8258;
+            border: 1px dotted #FE2E64;
+}

@@ -1,11 +1,22 @@
 {% extends "base.html" %}
 {%block title %} Account {% endblock title%}
+{% block style_js %}
+<script type="text/javascript" src="{{STATIC_URL}}js/div.js">
+</script>
+<script type="text/javascript" src="{{STATIC_URL}}js/account.js">
+</script>
+{% endblock style_js%}
 {% block body %}
     <div id="content">
         <label for="incub" class="head"> Incub </label><br>
         Bienvenido {{name_account}} 
-        <a href='/logout_acc'> Logout</a>
+        <div class="tabs" style="text-align:right;">
+            <div style="display: inline-block;"><a href='#tbl_acc'> Home</a></div> |
+            <div style="display: inline-block;"><a href='#add_acc'> Add Account</a></div> |
+            <a href='/logout_acc'> Logout</a>
+        </div>
         <br><br>
+        <div id="tbl_acc" class='contenido'>
             <table class="tbl_accounts">
             <tr>
                 <td>Name</td>
@@ -22,5 +33,14 @@
                 </tr>
             {% endfor %}
             </table>
+        </div>
+        <div id="add_acc" class='contenido'>
+            <div><label>Name</label> <input type='text' id='name' name='name' /><br></div><br>
+            <div><label>Description</label> <textarea id='desc' name='desc' tabindex="1" rows='10' cols='50' ></textarea><br></div><br>
+            <div><label>User-Account</label> <input type='text' id='usracc' name='usracc' /><br></div><br>
+            <div><label>Pass-Account</label> <input type='text' id='passacc' name='passacc' /><br></div><br>
+            <input type='submit' id="acc-submit" class='btn' value='Enviar'/>
+            <br><br><div id="msg"></div>
+        </div>
     </div>
 {% endblock body %}

@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
                             }, 
                             function(data){
                                 if(data === "1")
-                                    window.location = "/account"
+                                    window.location = "/account";
                                 else{
                                     jQuery("#msg_login").text(data);
                                     jQuery("#login-usuario").val(null);

@@ -20,4 +20,5 @@ urlpatterns = patterns('',
     url(r'^xhr_login/$', 'principal.views.xhr_login'),
     url(r'^account/$', 'account.views.account'),
     url(r'^logout_acc/$', 'account.views.logout_acc'),
+    url(r'^account/xhr_add_account/$', 'account.views.xhr_add_account'),
 )
