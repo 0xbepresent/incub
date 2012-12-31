@@ -19,17 +19,21 @@
         <div id="tbl_acc" class='contenido'>
             <table class="tbl_accounts">
             <tr>
+                <td>ID</td>
                 <td>Name</td>
                 <td>Description</td>
                 <td>User-Account</td>
                 <td>Pass-Account</td>
+                <td>Delete</td>
             </tr>
             {%for item in accounts %}
                 <tr style="color: #E35B3E;">
+                    <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.description}}</td>
                     <td>{{item.user_account}}</td>
                     <td>{{item.pass_account}}</td>
+                    <td><a class="acc_delete" href="#">▀</a></td>
                 </tr>
             {% endfor %}
             </table>

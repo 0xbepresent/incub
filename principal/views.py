@@ -7,6 +7,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 
+#Libs for crypt
+from Crypto.Hash import MD5
+
 def home(request):
     user = request.user
     if user.is_anonymous():
