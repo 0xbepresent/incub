@@ -24,9 +24,9 @@ def account(request):
         return render_to_response('account/index.html', cmx, context_instance=RequestContext(request))
         
 @csrf_exempt
-def xhr_add_account(request):
+def xhr_add_edit_account(request):
     """
-    Add account of the user
+    Add account or edit of the user
     """
     if request.is_ajax():
         user = request.user
@@ -34,9 +34,15 @@ def xhr_add_account(request):
         descr = request.POST["descr"]
         usracc = request.POST["usracc"]
         passacc = request.POST["passacc"]
-        acc = Account(name=name, description=descr, user_account=usracc, pass_account=passacc, user=user)
-        acc.save()
-        return HttpResponse("Successfully saved")
+        typer = request.POST["type"]
+        if typer == "new":
+            acc = Account(name=name, description=descr, user_account=usracc, pass_account=passacc, user=user)
+            acc.save()
+            return HttpResponse("Successfully saved")
+        else:
+            ida = request.POST["id"]
+            account = Account.objects.filter(id=ida).update(name=name, description=descr, user_account=usracc, pass_account=passacc, user=user)
+            return HttpResponse("Successfully edited")
     else:
         return HttpResponse(status=404)
 

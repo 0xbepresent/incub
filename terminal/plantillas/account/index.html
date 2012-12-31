@@ -7,15 +7,7 @@
 </script>
 {% endblock style_js%}
 {% block body %}
-    <div id="content">
-        <label for="incub" class="head"> Incub </label><br>
-        Bienvenido {{name_account}} 
-        <div class="tabs" style="text-align:right;">
-            <div style="display: inline-block;"><a href='#tbl_acc'> Home</a></div> |
-            <div style="display: inline-block;"><a href='#add_acc'> Add Account</a></div> |
-            <a href='/logout_acc'> Logout</a>
-        </div>
-        <br><br>
+        Bienvenido {{name_account}} <br><br><br>
         <div id="tbl_acc" class='contenido'>
             <table class="tbl_accounts">
             <tr>
@@ -24,6 +16,7 @@
                 <td>Description</td>
                 <td>User-Account</td>
                 <td>Pass-Account</td>
+                <td>Edit</td>
                 <td>Delete</td>
             </tr>
             {%for item in accounts %}
@@ -33,7 +26,8 @@
                     <td>{{item.description}}</td>
                     <td>{{item.user_account}}</td>
                     <td>{{item.pass_account}}</td>
-                    <td><a class="acc_delete" href="#">▀</a></td>
+                    <td><a class="acc_edit" href="#">▀</a></td>
+                    <td><a class="acc_delete" href="#">Ø</a></td>
                 </tr>
             {% endfor %}
             </table>
@@ -46,5 +40,4 @@
             <input type='submit' id="acc-submit" class='btn' value='Enviar'/>
             <br><br><div id="msg"></div>
         </div>
-    </div>
 {% endblock body %}

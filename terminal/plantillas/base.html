@@ -14,10 +14,23 @@
         </style>
     <![endif]-->
     <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+    <script type="text/javascript">
+        var edit = false;
+        var id = 0;
+    </script>
     {% block style_css %}{% endblock %}
     {% block style_js %}{% endblock %}
 </head>
 <body>
+    <div id="content">
+    <label for="incub" class="head"> Incub </label><br>
+    <div class="tabs" style="text-align:right;">
+            <div style="display: inline-block;"><a href='#tbl_acc'> Home</a></div> |
+            <div style="display: inline-block;"><a href='#add_acc'> Add Account</a></div> |
+            <a href='/logout_acc'> Logout</a>
+    </div>
+        <br><br>
     {% block body %}{% endblock %}
+    </div>
 </body>
 <html>
