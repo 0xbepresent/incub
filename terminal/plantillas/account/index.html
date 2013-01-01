@@ -5,6 +5,9 @@
 </script>
 <script type="text/javascript" src="{{STATIC_URL}}js/account.js">
 </script>
+<script type="text/javascript" src="{{STATIC_URL}}js/jsaes.js">
+</script>
+<script type="text/javascript" src='{{STATIC_URL}}js/jsaes_wrapper.js'></script>
 {% endblock style_js%}
 {% block body %}
     <div id="content">
@@ -15,27 +18,37 @@
             <a href='/logout_acc'> Logout</a>
     </div>
         <br><br>
-        Bienvenido {{name_account}} <br><br><br>
+        Bienvenido {{name_account}} <br><br>
+        <div id='keypart'>
+            Insert your key<br>
+            <input type='text' id='txtkey' name='txtkey' value=''/>
+            <input type='submit' id='sendkey' class='btn' value='Load' />
+        </div>
+        <div id='desencryptpart' style='display:none;'>
+            <label id='keyLoaded'></label><br>
+            <input type='submit' id='desencryptkey' class='btn' value='Desencrypt' />
+        </div>
+        <br><br>
         <div id="tbl_acc" class='contenido'>
             <table class="tbl_accounts">
             <tr>
-                <td>ID</td>
-                <td>Name</td>
-                <td>Description</td>
-                <td>User-Account</td>
-                <td>Pass-Account</td>
-                <td>Edit</td>
-                <td>Delete</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>User-Account</th>
+                <th>Pass-Account</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             {%for item in accounts %}
                 <tr style="color: #E35B3E;">
-                    <td>{{item.id}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.description}}</td>
-                    <td>{{item.user_account}}</td>
-                    <td>{{item.pass_account}}</td>
-                    <td><a class="acc_edit" href="#">▀</a></td>
-                    <td><a class="acc_delete" href="#">Ø</a></td>
+                    <th>{{item.id}}</th>
+                    <td id='tbl_name'>{{item.name}}</td>
+                    <td id='tbl_desc'>{{item.description}}</td>
+                    <td id='tbl_usracc'>{{item.user_account}}</td>
+                    <td id='tbl_passacc'>{{item.pass_account}}</td>
+                    <th><a class="acc_edit" href="#">▀</a></th>
+                    <th><a class="acc_delete" href="#">Ø</a></th>
                 </tr>
             {% endfor %}
             </table>
@@ -45,7 +58,7 @@
             <div><label>Description</label> <textarea id='desc' name='desc' tabindex="1" rows='10' cols='50' ></textarea><br></div><br>
             <div><label>User-Account</label> <input type='text' id='usracc' name='usracc' /><br></div><br>
             <div><label>Pass-Account</label> <input type='text' id='passacc' name='passacc' /><br></div><br>
-            <input type='submit' id="acc-submit" class='btn' value='Enviar'/>
+            <input type='submit' id="acc-submit" class='btn' value='Send'/>
             <br><br><div id="msg"></div>
         </div>
     </div>
