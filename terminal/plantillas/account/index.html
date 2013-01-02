@@ -21,12 +21,12 @@
         Bienvenido {{name_account}} <br><br>
         <div id='keypart'>
             Insert your key<br>
-            <input type='text' id='txtkey' name='txtkey' value=''/>
+            <input type='text' id='txtkey' name='txtkey' value='1234567891234567'/>
             <input type='submit' id='sendkey' class='btn' value='Load' />
         </div>
         <div id='desencryptpart' style='display:none;'>
             <label id='keyLoaded'></label><br>
-            <input type='submit' id='desencryptkey' class='btn' value='Desencrypt' />
+            <input type='submit' id='anothertkey' class='btn' value='Another Key' />
         </div>
         <br><br>
         <div id="tbl_acc" class='contenido'>
@@ -47,8 +47,8 @@
                     <td id='tbl_desc'>{{item.description}}</td>
                     <td id='tbl_usracc'>{{item.user_account}}</td>
                     <td id='tbl_passacc'>{{item.pass_account}}</td>
-                    <th><a class="acc_edit" href="#">▀</a></th>
-                    <th><a class="acc_delete" href="#">Ø</a></th>
+                    <th><a class='acc_edit' href='#' style="display:none;">▀</a></th>
+                    <th><a class="acc_delete" href="#" style="display:none;">Ø</a></th>
                 </tr>
             {% endfor %}
             </table>

@@ -14,8 +14,11 @@ function encrypt ( inputStr,key ) {
 function decrypt ( inputStr,key ) {
     block = string2Bin(inputStr);
     AES_Decrypt(block, key);
-    var data=bin2String(block);
-    return data;
+    var data = bin2String(block);
+    if(is_valid(data) == 0)
+        return 0;
+    else
+        return data;
 }
 function encryptLongString ( myString,key ) {
     if(myString.length>16){
@@ -63,4 +66,15 @@ function string2Bin(str) {
 
 function bin2String(array) {
     return String.fromCharCode.apply(String, array);
+}
+
+//
+function is_valid(text){
+    var splChars = "Èù¢²³Ëþ¼ÔúÄþ¾ùßÿëæÖõÆÇµÃ¤Ïö";
+    for (var i = 0; i < text.length; i++) {
+        if (splChars.indexOf(text.charAt(i)) != -1){
+            //alert ("Illegal characters detected!. The key is incorrect!");
+            return 0;
+        }
+    }
 }
