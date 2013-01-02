@@ -22,7 +22,7 @@ def xhr_terminal(request):
         if txt == "who":
             message = "You are the root"
         elif txt == "about":
-            message = "Terminal simulation in python!. You can keep your accounts with an encryption key and access to your accounts."
+            message = "Terminal simulation in python!. You can keep your accounts with an encryption key and access to your accounts. We are in http://github.com/misalabs"
         elif txt == "hi":
             message = "Hi, I'm incub :D"
         elif txt == "help":
