@@ -1,4 +1,12 @@
+var edit = false;
+var id = 0;
+var key= 0;
 jQuery(document).ready(function(){
+    
+    if(jQuery("table tr").length <= 1){
+        jQuery("#msjnew").css("display", "block");
+    }
+    
     jQuery("#acc-submit").click(function(){
         if(key == 0)
             alert("The key is not load");

@@ -24,6 +24,10 @@ A:hover, A:active{color:  #64A8E7;  text-decoration: none;}
     /*border: 1px solid #fff;*/
 }
 
+p{
+    color: #58ACFA;
+}
+
 .head{
     font-size: 100px;
 }

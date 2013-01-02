@@ -21,8 +21,15 @@
         Bienvenido {{name_account}} <br><br>
         <div id='keypart'>
             Insert your key<br>
-            <input type='text' id='txtkey' name='txtkey' value='1234567891234567'/>
+            <input type='text' id='txtkey' name='txtkey' value=''/>
             <input type='submit' id='sendkey' class='btn' value='Load' />
+        </div>
+        <div id='msjnew' style="display:none;">
+            <p>
+            The key must be of size 16, 24 or 32 characters. <br>
+            Once encrypted an account you will use the same <br>
+            key to encrypt/decrypt all accounts.
+            </p>
         </div>
         <div id='desencryptpart' style='display:none;'>
             <label id='keyLoaded'></label><br>
