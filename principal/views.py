@@ -22,11 +22,11 @@ def xhr_terminal(request):
         if txt == "who":
             message = "You are the root"
         elif txt == "about":
-            message = "Terminal simulation in python!."
+            message = "Terminal simulation in python!. You can keep your accounts with an encryption key and access to your accounts."
         elif txt == "hi":
             message = "Hi, I'm incub :D"
         elif txt == "help":
-            message = "Commands:  about, clear, login, hi, who"
+            message = "Commands:  about, clear, hi, login, register, who"
         else:
             message = "Command not found"
         return HttpResponse(message)
