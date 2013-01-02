@@ -71,23 +71,29 @@ jQuery(document).ready(function(){
         if(jQuery("#txtkey").val().length == 16 || jQuery("#txtkey").val().length == 24 || jQuery("#txtkey").val().length == 32){
             key = init(jQuery("#txtkey").val());
             
-            jQuery("table td").each(function(i,o){ 
-                var value = ( jQuery(":first-child", this).is(":input") ) ? jQuery(":first-child", this).val() : ( jQuery(this).text() != "" ) ? jQuery(this).text() : jQuery(this).html() ; 
-                var desen = decryptLongString(jQuery(this).text(), key);
-                //Si caracteres ilegales
-                //alert(desen);
-                if(desen != 0){
-                    jQuery(this).text(desen);
-                    jQuery(this).parents("tr").find(".acc_edit").css('display', 'block');
-                    jQuery(this).parents("tr").find(".acc_delete").css('display', 'block');
-                    jQuery("#keyLoaded").text("Key loaded  "+jQuery("#txtkey").val());
-                    jQuery("#keypart").css('display', 'none');
-                    jQuery("#desencryptpart").css('display', 'block');
-                }
-                else{
-                    key = 0;
-                }
-            }); 
+            if(jQuery("table tr").length > 1){
+                jQuery("table td").each(function(i,o){ 
+                    var value = ( jQuery(":first-child", this).is(":input") ) ? jQuery(":first-child", this).val() : ( jQuery(this).text() != "" ) ? jQuery(this).text() : jQuery(this).html() ; 
+                    var desen = decryptLongString(jQuery(this).text(), key);
+                    //Si caracteres ilegales
+                    //alert(desen);
+                    if(desen != 0){
+                        jQuery(this).text(desen);
+                        jQuery(this).parents("tr").find(".acc_edit").css('display', 'block');
+                        jQuery(this).parents("tr").find(".acc_delete").css('display', 'block');
+                        jQuery("#keyLoaded").text("Key loaded  "+jQuery("#txtkey").val());
+                        jQuery("#keypart").css('display', 'none');
+                        jQuery("#desencryptpart").css('display', 'block');
+                    }
+                    else{
+                        key = 0;
+                    }
+                }); 
+            }else{
+                jQuery("#keyLoaded").text("Key loaded  "+jQuery("#txtkey").val());
+                jQuery("#keypart").css('display', 'none');
+                jQuery("#desencryptpart").css('display', 'block');
+            }
         }else{
             alert("Only keys of 16 24 32 bits");
         }
