@@ -6,10 +6,10 @@ class Account(models.Model):
     """
     Account class is the model for user accounts.
     """
-    name = models.CharField(max_length=50,verbose_name = 'name')
+    name = models.CharField(verbose_name = 'name')
     description = models.TextField(help_text = 'Description')
-    user_account = models.CharField(max_length=50,verbose_name = 'user account')
-    pass_account = models.CharField(max_length=50,verbose_name = 'pass_account')
+    user_account = models.CharField(verbose_name = 'user account')
+    pass_account = models.CharField(verbose_name = 'pass_account')
     user = models.ForeignKey(User)
     
     def __unicode__(self):
