@@ -102,4 +102,8 @@ jQuery(document).ready(function(){
     jQuery("#anothertkey").click(function(){
         window.location = "/";
     });
+    
+    $(window).unload(function () {
+        finish();
+    });
 });

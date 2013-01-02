@@ -3,12 +3,15 @@
     Main
 {% endblock %}
 {% block style_css %}
-    <link rel = 'stylesheet' type='text/css' href='{{STATIC_URL}}css/login.css' >
+    <link rel = 'stylesheet' type='text/css' href='{{STATIC_URL}}css/modal.css' >
 {% endblock style_css %}
 {% block style_js %}
     <script type='text/javascript' src='{{STATIC_URL}}js/jquery.simplemodal.js'></script>
     <script type='text/javascript' src='{{STATIC_URL}}js/login.js'></script>
+    <script type='text/javascript' src='{{STATIC_URL}}js/register.js'></script>
     <script type="text/javascript" src="{{STATIC_URL}}js/terminal.js">
+    </script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery.validate.js">
     </script>
 {% endblock style_js%}
 {% block body %}
@@ -16,17 +19,33 @@
     <div id='contenidoTermial'>
     </div>
     <div style="">
-        root@misa-corp:$
+        root@incub-corp:$
         <input type='text' id='textTerminal' size="150" style="background-color: #1C1C1C; border:none; outline:none; color:#FE2E64;
         margin: 0px; display: inline-block;">
     </div>
-    <div id="login-modal" class="login-modal" style="display:none;" >
-            <div><label>Usuario:</label>
+    <div id="login-modal" class="modal" style="display:none;" >
+            <div><label>User:</label>
             <input type="text" id="login-usuario" autofocus="autofocus"/></div>
-            <div><label>Clave:</label>
+            <div><label>Password:</label>
             <input type="password" id="login-clave"/></div>
             <div><input type="submit" id="login-submit" class='btn' value="Login"/></div>
             <div id="msg_login">
             </div>
+    </div>
+    <div id="register-modal" class="modal" style="display:none;" >
+        <form id='registerform' >
+            <div><label>User:</label>
+            <input type="text" id="register_usuario" name="register_usuario" autofocus="autofocus"/></div>
+            
+            <div><label>E-mail:</label>
+            <input type="text" id="register_email" name="register_email" /></div>
+            
+            <div><label>Password:</label>
+            <input type="password" id="register_clave" name="register_clave" /></div>
+
+            <div><input type="submit" id="register-submit" class='btn' value="Login"/></div>
+            <div id="msg_register">
+            </div>
+        </form>
     </div>
 {% endblock body %}

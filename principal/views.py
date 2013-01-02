@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
+from django.core.exceptions import ObjectDoesNotExist
 
 def home(request):
     user = request.user
@@ -48,3 +49,23 @@ def xhr_login(request):
             return HttpResponse("User and password incorrect")
     else:
         return HttpResponse(status=400)
+        
+@csrf_exempt
+def xhr_register(request):
+    if request.is_ajax():
+        username = request.POST['user']
+        email = request.POST['email']
+        passw = request.POST['password']
+        try:
+            userExist = User.objects.get(username = username)
+            return HttpResponse("Username exist")
+        except ObjectDoesNotExist:
+            try:
+                emailExist = User.objects.get(email = email)
+                return HttpResponse("Email exist")
+            except ObjectDoesNotExist:
+                userDB = User.objects.create_user(username, email, passw)
+                userDB.save()
+                return HttpResponse(1)
+    else:
+        return HttpResponse(status = 400)
